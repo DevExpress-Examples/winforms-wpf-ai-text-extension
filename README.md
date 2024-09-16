@@ -91,7 +91,7 @@ The following code snippet attaches AI-powered text processing behaviors to a De
 
 - Console App: [Program.cs](./CS/console-ai-extension/Program.cs)
 - WinForms App:
-    - [Program.cs](./CS/winforms-ai-extensions/Program.cs) (VB: Program.vb](./VB/winforms-ai-extensions/Program.vb)
+    - [Program.cs](./CS/winforms-ai-extensions/Program.cs) (VB: [Program.vb](./VB/winforms-ai-extensions/Program.vb)
     - [RichEditForm.Designer.cs](./CS/winforms-ai-extensions/RichEditForm.Designer.cs) (VB: [RichEditForm.Designer.vb](./VB/winforms-ai-extensions/RichEditForm.Designer.vb)
     - [MemoEditForm.Designer.cs](./CS/winforms-ai-extensions/MemoEditForm.Designer.cs) (VB: [MemoEditForm.Designer.vb](./VB/winforms-ai-extensions/MemoEditForm.Designer.vb))
 - WPF App:

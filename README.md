@@ -50,7 +50,7 @@ Use the [BehaviorManager](https://docs.devexpress.com/WindowsForms/DevExpress.Ut
 
 Drop the `BehaviorManager` component from the Toolbox onto a Form. Open the behavior manager's smart tag menu and click "Edit Behaviors" to edit behaviors. In the **Behavior Collection Editor**, create desired AI-powered text processing behaviors, attach them to corresponding UI controls, and configure behavior settings (for example, the Temperature):
 
-[screenshot]
+![devexpress ai integration collection editor](./media/image.png)
 
 Run the application. Select text in the `MemoEdit` or `RichTextEdit` control and invoke the context menu. The context menu will display an "AI Text Transform" submenu with AI-driven commands.
 

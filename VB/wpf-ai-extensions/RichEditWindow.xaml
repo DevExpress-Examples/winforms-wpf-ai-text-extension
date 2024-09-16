@@ -1,0 +1,31 @@
+﻿<Window x:Class="WPF_AI_Extensions.RichEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_AI_Extensions"
+        xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+        xmlns:dxre="http://schemas.devexpress.com/winfx/2008/xaml/richedit" 
+        xmlns:wpfo="clr-namespace:DevExpress.AIIntegration.Wpf.Office;assembly=DevExpress.AIIntegration.Wpf.v24.2"
+        xmlns:desktop="clr-namespace:DevExpress.AIIntegration.Desktop;assembly=DevExpress.AIIntegration.Desktop.v24.2"
+        mc:Ignorable="d"
+        Title="RichEditWindow" Height="450" Width="800">
+    <Grid>
+        <dxre:RichEditControl x:Name="richEditControl" CommandBarStyle="Ribbon">
+            <dxmvvm:Interaction.Behaviors>
+                <wpfo:RichEditExpandBehavior />
+                <wpfo:RichEditShortenBehavior />
+                <wpfo:RichEditSummarizeBehavior />
+                <wpfo:RichEditExplainBehavior />
+                <wpfo:RichEditToneStyleBehavior />
+                <wpfo:RichEditProofreadBehavior />
+                <wpfo:RichEditRewriteStyleBehavior />
+                <wpfo:RichEditTranslateBehavior >
+                    <desktop:LanguageInfo Culture="de-DE"/>
+                </wpfo:RichEditTranslateBehavior>
+                <wpfo:RichEditCustomRequestBehavior />
+                <wpfo:RichEditGenerateDescriptionBehavior/>
+            </dxmvvm:Interaction.Behaviors>
+        </dxre:RichEditControl>
+    </Grid>
+</Window>

@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>WPF_AI_Extensions</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DevExpress.AIIntegration.Azure.OpenAI" Version="24.2.1-alpha-24254" />
+    <PackageReference Include="DevExpress.AIIntegration.Wpf" Version="24.2.1-alpha-24254" />
+    <PackageReference Include="DevExpress.Wpf" Version="24.2.1-alpha-24254" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="WPF.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

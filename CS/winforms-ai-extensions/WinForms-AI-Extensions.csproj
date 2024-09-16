@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>WinForms_AI_Extensions</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DevExpress.AIIntegration" Version="24.2.1-alpha-24254" />
+    <PackageReference Include="DevExpress.AIIntegration.Azure.OpenAI" Version="24.2.1-alpha-24254" />
+    <PackageReference Include="DevExpress.AIIntegration.Desktop" Version="24.2.1-alpha-24254" />
+    <PackageReference Include="DevExpress.AIIntegration.WinForms" Version="24.2.1-alpha-24254" />
+    <PackageReference Include="DevExpress.Win" Version="24.2.1-alpha-24254" />
+    <PackageReference Include="DevExpress.Win.Design" Version="24.2.1-alpha-24254" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="WindowsForms.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

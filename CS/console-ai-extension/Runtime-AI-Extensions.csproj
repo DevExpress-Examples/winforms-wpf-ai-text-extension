@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>DevExpress_AI_Sample_EAP</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DevExpress.AIIntegration" Version="24.2.1-alpha-24241" />
+    <PackageReference Include="DevExpress.AIIntegration.Azure.OpenAI" Version="24.2.1-alpha-24241" />
+    <PackageReference Include="DevExpress.AIIntegration.Ollama" Version="24.2.1-alpha-24241" />
+    <PackageReference Include="DevExpress.AIIntegration.OpenAI" Version="24.2.1-alpha-24241" />
+  </ItemGroup>
+
+</Project>

@@ -27,7 +27,7 @@ Install DevExpress AI-related NuGet packages
 
 ### Register AI Services
 
-The following code in the Program.cs file registers an Azure AI service in the application:
+The following code in the `Program.cs` file registers an Azure AI service in the application:
 
 ```cs
 // Modify the following lines to obtain and pass your personal Azure OpenAI credentials to the `Register~` method.
@@ -91,13 +91,13 @@ The following code snippet attaches AI-powered text processing behaviors to a De
 
 - Console App: [Program.cs](./CS/console-ai-extension/Program.cs)
 - WinForms App:
-    - [Program.cs](./CS/winforms-ai-extensions/Program.cs)
-    - [RichEditForm.Designer.cs](./CS/winforms-ai-extensions/RichEditForm.Designer.cs)
-    - [MemoEditForm.Designer.cs](./CS/winforms-ai-extensions/MemoEditForm.Designer.cs)
+    - [Program.cs](./CS/winforms-ai-extensions/Program.cs) (VB: Program.vb](./VB/winforms-ai-extensions/Program.vb)
+    - [RichEditForm.Designer.cs](./CS/winforms-ai-extensions/RichEditForm.Designer.cs) (VB: [RichEditForm.Designer.vb](./VB/winforms-ai-extensions/RichEditForm.Designer.vb)
+    - [MemoEditForm.Designer.cs](./CS/winforms-ai-extensions/MemoEditForm.Designer.cs) (VB: [MemoEditForm.Designer.vb](./VB/winforms-ai-extensions/MemoEditForm.Designer.vb))
 - WPF App:
-    - [App.xaml.cs](./CS/wpf-ai-extensions/App.xaml.cs)
-    - [MainWindow.xaml](./CS/wpf-ai-extensions/MainWindow.xaml)
-    - [RichEditWindow.xaml](./CS/wpf-ai-extensions/RichEditWindow.xaml)
+    - [App.xaml.cs](./CS/wpf-ai-extensions/App.xaml.cs) (VB: [App.xaml.vb](./VB/wpf-ai-extensions/App.xaml.vb))
+    - [MainWindow.xaml](./CS/wpf-ai-extensions/MainWindow.xaml) (VB: [MainWindow.xaml](./VB/wpf-ai-extensions/MainWindow.xaml))
+    - [RichEditWindow.xaml](./CS/wpf-ai-extensions/RichEditWindow.xaml) (VB: [RichEditWindow.xaml](./VB/wpf-ai-extensions/RichEditWindow.xaml))
 
 
 ## Related Examples

@@ -102,7 +102,7 @@ The following code snippet attaches AI-powered text processing behaviors to a De
 
 ## Related Examples
 
-- [Rich Text Editor and HTML Editor for Blazor - How to integrate AI-powered extensions]()
+- [Rich Text Editor and HTML Editor for Blazor - How to integrate AI-powered extensions](https://github.com/DevExpress-Examples/blazor-ai-integration-to-text-editors)
 - [AI Chat for Blazor - How to add DxAIChat component in Blazor, MAUI, WPF, and WinForms applications](https://github.com/DevExpress-Examples/devexpress-ai-chat-samples)
 
 <!-- feedback -->

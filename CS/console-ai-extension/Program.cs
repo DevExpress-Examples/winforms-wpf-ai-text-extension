@@ -3,6 +3,8 @@ using DevExpress.AIIntegration;
 using DevExpress.AIIntegration.Extensions;
 using DevExpress.AIIntegration.Localization;
 using DevExpress.Data;
+using Microsoft.Extensions.AI;
+using System;
 using System.Globalization;
 
 
@@ -13,9 +15,6 @@ namespace Runtime_AI_Extensions
         static void Main(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
-
-            //Enable sending large texts to Ollama
-            //AsyncDownloadPolicy.ConfigureHttpClient += AsyncDownloadPolicy_ConfigureHttpClient;
 
             //Enable localization
             //AIIntegrationLocalizer.Active = new CustomAILocalizer();
@@ -33,15 +32,6 @@ namespace Runtime_AI_Extensions
             Console.ReadKey();
         }
 
-        private static void AsyncDownloadPolicy_ConfigureHttpClient(object sender, AsyncDownloadPolicy.ConfigureHttpClientEventArgs e)
-        {
-            string? fullTypeName = e?.ValueType.FullName;
-            if (fullTypeName.Contains("Ollama"))
-            {
-                e.Client.Timeout = TimeSpan.FromMinutes(15);
-            }
-        }
-
         public class SampleAITextModifier
         {
             //Modify the following lines to obtain and pass your personal Azure OpenAI credentails to the Register* method.
@@ -50,15 +40,18 @@ namespace Runtime_AI_Extensions
             string DeploymentName { get { return Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENTNAME"); } }
 
             AIExtensionsContainerDefault defaultAIContainer;
+
             public SampleAITextModifier()
             {
-                defaultAIContainer = new AIExtensionsContainerDefault();
-                //defaultAIContainer.RegisterChatClientOllamaAIService("http://localhost:11434/api/chat", "llama3.1");
-                defaultAIContainer.RegisterChatClientOpenAIService(
-                    new AzureOpenAIClient(new Uri(AzureOpenAIEndpoint),
-                    new System.ClientModel.ApiKeyCredential(AzureOpenAIKey)),
-                    DeploymentName
-                );
+
+                ///To register Ollama
+                //OllamaChatClient ollamaChatClient = new OllamaChatClient("http://localhost:11434/api/chat", "llama3.1");
+                //defaultAIContainer = AIExtensionsContainerConsole.CreateDefaultAIExtensionContainer(ollamaChatClient);
+
+                ///To register Azure OpenAI
+                AzureOpenAIClient azureOpenAIClient = new AzureOpenAIClient(new Uri(AzureOpenAIEndpoint),
+                    new System.ClientModel.ApiKeyCredential(AzureOpenAIKey));
+                defaultAIContainer = AIExtensionsContainerConsole.CreateDefaultAIExtensionContainer(azureOpenAIClient.AsChatClient(DeploymentName));
             }
 
             public void ChangeDefaults()
@@ -81,7 +74,7 @@ namespace Runtime_AI_Extensions
                     }
                     return translatedText;
                 }
-                // Something unexpected happens
+                // When something unexpected has happened
                 switch (result.Status)
                 {
                     case ResponseStatus.MaxTokenLimitExceeded:
@@ -98,13 +91,14 @@ namespace Runtime_AI_Extensions
             // How to replace the default extension
             public async Task<string> GetShakespeareText(string textToModify)
             {
-                defaultAIContainer.Register<RewriteStyleRequest, WilliamShakespeareStyleExtension>();
-                string res = await defaultAIContainer.RewriteStyleAsync(new RewriteStyleRequest(textToModify, WritingStyle.Formal));
-                return res;  
+                defaultAIContainer.Register<ChangeStyleRequest, WilliamShakespeareStyleExtension>();
+                string res = await defaultAIContainer.ChangeStyleAsync(new ChangeStyleRequest(textToModify, WritingStyle.Formal));
+                return res;
             }
 
             //How to register and call your own extension
-            public async Task<string> GetMarkTwainText(string textToModify) {
+            public async Task<string> GetMarkTwainText(string textToModify)
+            {
                 var localContainer = new AIExtensionsContainerLocal(defaultAIContainer);
                 localContainer.Register<AuthoredStyleRequest, AuthoredStyleExtension>();
 
@@ -119,10 +113,10 @@ namespace Runtime_AI_Extensions
         }
     }
     #region How to modify the default extension
-    public class WilliamShakespeareStyleExtension : RewriteStyleExtension
+    public class WilliamShakespeareStyleExtension : ChangeStyleExtension
     {
         public WilliamShakespeareStyleExtension(IServiceProvider serviceProvider) : base(serviceProvider) { }
-        protected override string GetSystemPrompt(RewriteStyleRequest request)
+        protected override string GetSystemPrompt(ChangeStyleRequest request)
         {
             return "Rewrite this text in the William Shakespeare style.";
         }

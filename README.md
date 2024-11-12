@@ -19,11 +19,15 @@ This example registers an Azure OpenAI service and uses AI APIs within a .NET 8 
 
 ## Implementation Details
 
-Install DevExpress AI-related NuGet packages
+Install the following NuGet packages:
 
-1. DevExpress.AIIntegration.WinForms / DevExpress.AIIntegration.WPF
+1. Azure.AI.OpenAI
 
-2. DevExpress.AIIntegration.Azure.OpenAI
+2. DevExpress.AIIntegration
+
+3. Microsoft.Extensions.AI.Ollama
+
+4. Microsoft.Extensions.AI.OpenAI
 
 ### Register AI Services
 
@@ -35,13 +39,19 @@ static string AzureOpenAIEndpoint { get { return Environment.GetEnvironmentVaria
 static string AzureOpenAIKey { get { return Environment.GetEnvironmentVariable("AZURE_OPENAI_APIKEY"); } }
 static string DeploymentName { get { return Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENTNAME"); } }
 
-...
-AIExtensionsContainerDesktop.Default.RegisterChatClientOpenAIService(
-    new AzureOpenAIClient(
-        new Uri(AzureOpenAIEndpoint),
-        new System.ClientModel.ApiKeyCredential(AzureOpenAIKey)),
-    DeploymentName);
-// To use offline models powered by Ollama, use the RegisterChatClientOllamaAIService("http://localhost:11434/api/chat", "llama3.1"); method
+AIExtensionsContainerDefault defaultAIContainer;
+public SampleAITextModifier()
+{
+
+    ///To register Ollama
+    //OllamaChatClient ollamaChatClient = new OllamaChatClient("http://localhost:11434/api/chat", "yourModelName");
+    //defaultAIContainer = AIExtensionsContainerConsole.CreateDefaultAIExtensionContainer(ollamaChatClient);
+
+    ///To register Azure OpenAI
+    AzureOpenAIClient azureOpenAIClient = new AzureOpenAIClient(new Uri(AzureOpenAIEndpoint),    
+        new System.ClientModel.ApiKeyCredential(AzureOpenAIKey));
+    defaultAIContainer = AIExtensionsContainerConsole.CreateDefaultAIExtensionContainer(azureOpenAIClient.AsChatClient(DeploymentName));
+}
 ```
 
 ### WinForms

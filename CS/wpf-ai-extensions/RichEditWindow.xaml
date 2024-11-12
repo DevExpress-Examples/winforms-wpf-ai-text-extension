@@ -5,27 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_AI_Extensions"
         xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
-        xmlns:dxre="http://schemas.devexpress.com/winfx/2008/xaml/richedit" 
-        xmlns:wpfo="clr-namespace:DevExpress.AIIntegration.Wpf.Office;assembly=DevExpress.AIIntegration.Wpf.v24.2"
-        xmlns:desktop="clr-namespace:DevExpress.AIIntegration.Desktop;assembly=DevExpress.AIIntegration.Desktop.v24.2"
+        xmlns:dxre="http://schemas.devexpress.com/winfx/2008/xaml/richedit"
+        xmlns:dxai="http://schemas.devexpress.com/winfx/2008/xaml/ai"
         mc:Ignorable="d"
         Title="RichEditWindow" Height="450" Width="800">
     <Grid>
         <dxre:RichEditControl x:Name="richEditControl" CommandBarStyle="Ribbon">
-            <dxmvvm:Interaction.Behaviors>
-                <wpfo:RichEditExpandBehavior />
-                <wpfo:RichEditShortenBehavior />
-                <wpfo:RichEditSummarizeBehavior />
-                <wpfo:RichEditExplainBehavior />
-                <wpfo:RichEditToneStyleBehavior />
-                <wpfo:RichEditProofreadBehavior />
-                <wpfo:RichEditRewriteStyleBehavior />
-                <wpfo:RichEditTranslateBehavior >
-                    <desktop:LanguageInfo Culture="de-DE"/>
-                </wpfo:RichEditTranslateBehavior>
-                <wpfo:RichEditCustomRequestBehavior />
-                <wpfo:RichEditGenerateDescriptionBehavior/>
-            </dxmvvm:Interaction.Behaviors>
-        </dxre:RichEditControl>
+			<dxmvvm:Interaction.Behaviors>
+				<dxai:ExpandBehavior />
+				<dxai:ShortenBehavior/>
+				<dxai:SummarizeBehavior/>
+				<dxai:ExplainBehavior/>
+				<dxai:ChangeToneBehavior />
+				<dxai:ProofreadBehavior/>
+				<dxai:ChangeStyleBehavior/>
+				<dxai:TranslateBehavior>
+					<dxai:LanguageInfo Culture="en-US"/>
+					<dxai:LanguageInfo Culture="de-DE"/>
+					<dxai:LanguageInfo Culture="fr-FR"/>
+				</dxai:TranslateBehavior>
+				<dxai:GenerateImageDescriptionBehavior/>
+				<dxai:CustomRequestBehavior/>
+			</dxmvvm:Interaction.Behaviors>
+		</dxre:RichEditControl>
     </Grid>
 </Window>

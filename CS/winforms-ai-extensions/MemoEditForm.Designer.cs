@@ -41,25 +41,25 @@
             // 
             // memoEdit1
             // 
-            languageInfo1.Culture = new System.Globalization.CultureInfo("es");
-            languageInfo2.Culture = new System.Globalization.CultureInfo("de");
-            languageInfo3.Culture = new System.Globalization.CultureInfo("pt");
-            behaviorManager1.SetBehaviors(memoEdit1, new DevExpress.Utils.Behaviors.Behavior[] { (DevExpress.AIIntegration.WinForms.ExpandBehavior)DevExpress.Utils.Behaviors.Behavior.Create(typeof(DevExpress.AIIntegration.WinForms.ExpandBehavior), typeof(DevExpress.AIIntegration.WinForms.MemoEditExpandBehaviorSource), new object[] { null }), (DevExpress.AIIntegration.WinForms.ShortenBehavior)DevExpress.Utils.Behaviors.Behavior.Create(typeof(DevExpress.AIIntegration.WinForms.ShortenBehavior), typeof(DevExpress.AIIntegration.WinForms.MemoEditShortenBehaviorSource), new object[] { null }), (DevExpress.AIIntegration.WinForms.ToneStyleBehavior)DevExpress.Utils.Behaviors.Behavior.Create(typeof(DevExpress.AIIntegration.WinForms.ToneStyleBehavior), typeof(DevExpress.AIIntegration.WinForms.MemoEditToneStyleBehaviorSource), new object[] { null }), (DevExpress.AIIntegration.WinForms.ExplainBehavior)DevExpress.Utils.Behaviors.Behavior.Create(typeof(DevExpress.AIIntegration.WinForms.ExplainBehavior), typeof(DevExpress.AIIntegration.WinForms.MemoEditExplainBehaviorSource), new object[] { null }), (DevExpress.AIIntegration.WinForms.ProofreadBehavior)DevExpress.Utils.Behaviors.Behavior.Create(typeof(DevExpress.AIIntegration.WinForms.ProofreadBehavior), typeof(DevExpress.AIIntegration.WinForms.MemoEditProofreadBehaviorSource), new object[] { null }), (DevExpress.AIIntegration.WinForms.RewriteStyleBehavior)DevExpress.Utils.Behaviors.Behavior.Create(typeof(DevExpress.AIIntegration.WinForms.RewriteStyleBehavior), typeof(DevExpress.AIIntegration.WinForms.MemoEditRewriteStyleBehaviorSource), new object[] { null }), (DevExpress.AIIntegration.WinForms.SummarizeBehavior)DevExpress.Utils.Behaviors.Behavior.Create(typeof(DevExpress.AIIntegration.WinForms.SummarizeBehavior), typeof(DevExpress.AIIntegration.WinForms.MemoEditSummarizeBehaviorSource), new object[] { DevExpress.AIIntegration.SummarizeBehaviorMode.Abstractive, null }), (DevExpress.AIIntegration.WinForms.CustomRequestBehavior)DevExpress.Utils.Behaviors.Behavior.Create(typeof(DevExpress.AIIntegration.WinForms.CustomRequestBehavior), typeof(DevExpress.AIIntegration.WinForms.MemoEditCustomRequestBehaviorSource), new object[] { null }), (DevExpress.AIIntegration.WinForms.TranslateBehavior)DevExpress.Utils.Behaviors.Behavior.Create(typeof(DevExpress.AIIntegration.WinForms.TranslateBehavior), typeof(DevExpress.AIIntegration.WinForms.MemoEditTranslateBehaviorSource), new object[] { new DevExpress.AIIntegration.Desktop.LanguageInfo[] { languageInfo1, languageInfo2, languageInfo3 }, null }) });
+            languageInfo1.Culture = new System.Globalization.CultureInfo("pt");
+            languageInfo2.Culture = new System.Globalization.CultureInfo("es");
+            languageInfo3.Culture = new System.Globalization.CultureInfo("de");
+            behaviorManager1.SetBehaviors(memoEdit1, new DevExpress.Utils.Behaviors.Behavior[] { DevExpress.AIIntegration.WinForms.ExpandBehavior.Create(typeof(DevExpress.AIIntegration.WinForms.MemoEditExpandBehaviorSource)), DevExpress.AIIntegration.WinForms.ShortenBehavior.Create(typeof(DevExpress.AIIntegration.WinForms.MemoEditShortenBehaviorSource)), DevExpress.AIIntegration.WinForms.SummarizeBehavior.Create(typeof(DevExpress.AIIntegration.WinForms.MemoEditSummarizeBehaviorSource), DevExpress.AIIntegration.SummarizationMode.Abstractive), DevExpress.AIIntegration.WinForms.ExplainBehavior.Create(typeof(DevExpress.AIIntegration.WinForms.MemoEditExplainBehaviorSource)), DevExpress.AIIntegration.WinForms.ChangeToneBehavior.Create(typeof(DevExpress.AIIntegration.WinForms.MemoEditChangeToneBehaviorSource)), DevExpress.AIIntegration.WinForms.ProofreadBehavior.Create(typeof(DevExpress.AIIntegration.WinForms.MemoEditProofreadBehaviorSource)), DevExpress.AIIntegration.WinForms.ChangeStyleBehavior.Create(typeof(DevExpress.AIIntegration.WinForms.MemoEditChangeStyleBehaviorSource)), DevExpress.AIIntegration.WinForms.TranslateBehavior.Create(typeof(DevExpress.AIIntegration.WinForms.MemoEditTranslateBehaviorSource), new DevExpress.AIIntegration.Desktop.LanguageInfo[] { languageInfo1, languageInfo2, languageInfo3 }), DevExpress.AIIntegration.WinForms.CustomRequestBehavior.Create(typeof(DevExpress.AIIntegration.WinForms.MemoEditCustomRequestBehaviorSource)) });
             memoEdit1.Dock = DockStyle.Fill;
             memoEdit1.EditValue = resources.GetString("memoEdit1.EditValue");
             memoEdit1.Location = new Point(0, 0);
-            memoEdit1.Margin = new Padding(3, 2, 3, 2);
+            memoEdit1.Margin = new Padding(2, 2, 2, 2);
             memoEdit1.Name = "memoEdit1";
-            memoEdit1.Size = new Size(1268, 653);
+            memoEdit1.Size = new Size(951, 496);
             memoEdit1.TabIndex = 0;
             // 
             // MemoEditForm
             // 
-            AutoScaleDimensions = new SizeF(12F, 25F);
+            AutoScaleDimensions = new SizeF(9F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1268, 653);
+            ClientSize = new Size(951, 496);
             Controls.Add(memoEdit1);
-            Margin = new Padding(3, 2, 3, 2);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "MemoEditForm";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)memoEdit1.Properties).EndInit();

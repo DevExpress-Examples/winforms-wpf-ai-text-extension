@@ -5,6 +5,8 @@ Imports DevExpress.AIIntegration
 Imports DevExpress.AIIntegration.Extensions
 Imports DevExpress.AIIntegration.Localization
 Imports DevExpress.Data
+Imports Microsoft.Extensions.AI
+Imports System
 Imports System.Globalization
 
 
@@ -12,9 +14,6 @@ Namespace Runtime_AI_Extensions
 	Friend Class Program
 		Shared Sub Main(ByVal args() As String)
 			Console.OutputEncoding = System.Text.Encoding.UTF8
-
-			'Enable sending large texts to Ollama
-			'AsyncDownloadPolicy.ConfigureHttpClient += AsyncDownloadPolicy_ConfigureHttpClient;
 
 			'Enable localization
 			'AIIntegrationLocalizer.Active = new CustomAILocalizer();
@@ -30,13 +29,6 @@ Namespace Runtime_AI_Extensions
 			Console.WriteLine(s.GetMarkTwainText("Elon Reeve Musk FRS (born June 28, 1971) is a businessman and investor known for his key roles in space company SpaceX and automotive company Tesla, Inc..").Result)
 			Console.WriteLine("Press any key to exit...")
 			Console.ReadKey()
-		End Sub
-
-		Private Shared Sub AsyncDownloadPolicy_ConfigureHttpClient(ByVal sender As Object, ByVal e As AsyncDownloadPolicy.ConfigureHttpClientEventArgs)
-			Dim fullTypeName? As String = e?.ValueType.FullName
-			If fullTypeName.Contains("Ollama") Then
-				e.Client.Timeout = TimeSpan.FromMinutes(15)
-			End If
 		End Sub
 
 		Public Class SampleAITextModifier
@@ -58,10 +50,16 @@ Namespace Runtime_AI_Extensions
 			End Property
 
 			Private defaultAIContainer As AIExtensionsContainerDefault
+
 			Public Sub New()
-				defaultAIContainer = New AIExtensionsContainerDefault()
-				'defaultAIContainer.RegisterChatClientOllamaAIService("http://localhost:11434/api/chat", "llama3.1");
-				defaultAIContainer.RegisterChatClientOpenAIService(New AzureOpenAIClient(New Uri(AzureOpenAIEndpoint), New System.ClientModel.ApiKeyCredential(AzureOpenAIKey)), DeploymentName)
+
+				'''To register Ollama
+				'OllamaChatClient ollamaChatClient = new OllamaChatClient("http://localhost:11434/api/chat", "llama3.1");
+				'defaultAIContainer = AIExtensionsContainerConsole.CreateDefaultAIExtensionContainer(ollamaChatClient);
+
+				'''To register Azure OpenAI
+				Dim azureOpenAIClient As New AzureOpenAIClient(New Uri(AzureOpenAIEndpoint), New System.ClientModel.ApiKeyCredential(AzureOpenAIKey))
+				defaultAIContainer = AIExtensionsContainerConsole.CreateDefaultAIExtensionContainer(azureOpenAIClient.AsChatClient(DeploymentName))
 			End Sub
 
 			Public Sub ChangeDefaults()
@@ -81,7 +79,7 @@ Namespace Runtime_AI_Extensions
 					Loop
 					Return translatedText
 				End If
-				' Something unexpected happens
+				' When something unexpected has happened
 				Select Case result.Status
 					Case ResponseStatus.MaxTokenLimitExceeded, ResponseStatus.InputSizeLimitExceeded
 						Return "The text you're trying to send within a request is too long and exceeds the limit."
@@ -95,8 +93,8 @@ Namespace Runtime_AI_Extensions
 
 			' How to replace the default extension
 			Public Async Function GetShakespeareText(ByVal textToModify As String) As Task(Of String)
-				defaultAIContainer.Register(Of RewriteStyleRequest, WilliamShakespeareStyleExtension)()
-				Dim res As String = Await defaultAIContainer.RewriteStyleAsync(New RewriteStyleRequest(textToModify, WritingStyle.Formal))
+				defaultAIContainer.Register(Of ChangeStyleRequest, WilliamShakespeareStyleExtension)()
+				Dim res As String = Await defaultAIContainer.ChangeStyleAsync(New ChangeStyleRequest(textToModify, WritingStyle.Formal))
 				Return res
 			End Function
 
@@ -117,12 +115,12 @@ Namespace Runtime_AI_Extensions
 	End Class
 	#Region "How to modify the default extension"
 	Public Class WilliamShakespeareStyleExtension
-		Inherits RewriteStyleExtension
+		Inherits ChangeStyleExtension
 
 		Public Sub New(ByVal serviceProvider As IServiceProvider)
 			MyBase.New(serviceProvider)
 		End Sub
-		Protected Overrides Function GetSystemPrompt(ByVal request As RewriteStyleRequest) As String
+		Protected Overrides Function GetSystemPrompt(ByVal request As ChangeStyleRequest) As String
 			Return "Rewrite this text in the William Shakespeare style."
 		End Function
 	End Class

@@ -11,8 +11,8 @@
 
 	<ItemGroup>
 		<PackageReference Include="Azure.AI.OpenAI" Version="2.0.0" />
-		<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.0.0-preview.9.24525.1" />
-		<PackageReference Include="DevExpress.AIIntegration.WinForms" Version="24.2.1-alpha-24317" />
+		<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.0.*" />
+		<PackageReference Include="DevExpress.AIIntegration.WinForms" Version="24.2.*" />
 	</ItemGroup>
 
 	<ItemGroup>

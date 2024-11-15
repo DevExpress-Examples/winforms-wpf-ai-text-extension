@@ -1,5 +1,6 @@
 ﻿Imports Azure.AI.OpenAI
 Imports DevExpress.AIIntegration
+Imports Microsoft.Extensions.AI
 
 Namespace WinForms_AI_Extensions
 	Friend Module Program
@@ -36,7 +37,11 @@ Namespace WinForms_AI_Extensions
 		End Sub
 
 		Private Sub RegisterDevExpressAI()
-			AIExtensionsContainerDesktop.Default.RegisterChatClientOpenAIService(New AzureOpenAIClient(New Uri(AzureOpenAIEndpoint), New System.ClientModel.ApiKeyCredential(AzureOpenAIKey)), DeploymentName)
+			'''To register Ollama
+			'OllamaChatClient ollamaChatClient = new OllamaChatClient("http://localhost:11434/api/chat", "llama3.1");
+
+			Dim azureOpenAIClient As New AzureOpenAIClient(New Uri(AzureOpenAIEndpoint), New System.ClientModel.ApiKeyCredential(AzureOpenAIKey))
+			AIExtensionsContainerDesktop.Default.RegisterChatClient(azureOpenAIClient.AsChatClient(DeploymentName))
 		End Sub
 	End Module
 End Namespace

@@ -36,7 +36,12 @@ Namespace WPF_AI_Extensions
 
 			ApplicationThemeHelper.ApplicationThemeName = "Office2019Colorful"
 
-			AIExtensionsContainerDesktop.Default.RegisterChatClientOpenAIService(New AzureOpenAIClient(New Uri(AzureOpenAIEndpoint), New System.ClientModel.ApiKeyCredential(AzureOpenAIKey)), DeploymentName)
+
+			'''To register Ollama
+			'OllamaChatClient ollamaChatClient = new OllamaChatClient("http://localhost:11434/api/chat", "llama3.1");
+
+			Dim azureOpenAIClient As New AzureOpenAIClient(New Uri(AzureOpenAIEndpoint), New System.ClientModel.ApiKeyCredential(AzureOpenAIKey))
+			AIExtensionsContainerDesktop.Default.RegisterChatClient(azureOpenAIClient.AsChatClient(DeploymentName))
 		End Sub
 	End Class
 End Namespace

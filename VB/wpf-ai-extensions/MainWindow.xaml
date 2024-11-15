@@ -6,8 +6,7 @@
         xmlns:local="clr-namespace:WPF_AI_Extensions"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
         xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
-        xmlns:wpf="clr-namespace:DevExpress.AIIntegration.Wpf;assembly=DevExpress.AIIntegration.Wpf.v24.2"
-        xmlns:desktop="clr-namespace:DevExpress.AIIntegration.Desktop;assembly=DevExpress.AIIntegration.Desktop.v24.2"
+        xmlns:dxai="http://schemas.devexpress.com/winfx/2008/xaml/ai"
         xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
@@ -16,23 +15,25 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <dxe:TextEdit TextWrapping="Wrap"
-              Text="We are proud to announce the immediate availability of DevExpress Universal v24.1, our award-winning software development platform for .NET and Visual Studio developers. With numerous new products and dozens of high-impact features, v24.1 allows you to build your best, without limits or compromise. From the desktop, the web or your mobile world, DevExpress dev tools help you address a broad range of usage scenarios and deliver intuitive solutions that amaze.">
+        <dxe:TextEdit   TextWrapping="Wrap"
+                        Text="We are proud to announce the immediate availability of DevExpress Universal v24.1, our award-winning software development platform for .NET and Visual Studio developers. With numerous new products and dozens of high-impact features, v24.1 allows you to build your best, without limits or compromise. From the desktop, the web or your mobile world, DevExpress dev tools help you address a broad range of usage scenarios and deliver intuitive solutions that amaze."
+						VerticalScrollBarVisibility="Auto"
+                        VerticalContentAlignment="Top">
             <dxmvvm:Interaction.Behaviors>
-                <wpf:SummarizeBehavior/>
-                <wpf:ExplainBehavior/>
-                <wpf:ShortenBehavior/>
-                <wpf:ExpandBehavior />
-                <wpf:ToneStyleBehavior />
-                <wpf:ProofreadBehavior/>
-                <wpf:RewriteStyleBehavior/>
-                <wpf:CustomRequestBehavior/>
-                <wpf:TranslateBehavior>
-                    <desktop:LanguageInfo Culture="de-DE"/>
-                    <desktop:LanguageInfo Culture="es-ES"/>
-                    <desktop:LanguageInfo Culture="pt-BR"/>
-                </wpf:TranslateBehavior>
-            </dxmvvm:Interaction.Behaviors>
+				<dxai:ExpandBehavior />
+				<dxai:ShortenBehavior/>
+				<dxai:SummarizeBehavior/>
+				<dxai:ExplainBehavior/>
+				<dxai:ChangeToneBehavior />
+				<dxai:ProofreadBehavior/>
+				<dxai:ChangeStyleBehavior/>
+				<dxai:TranslateBehavior>
+					<dxai:LanguageInfo Culture="en-US"/>
+					<dxai:LanguageInfo Culture="de-DE"/>
+					<dxai:LanguageInfo Culture="fr-FR"/>
+				</dxai:TranslateBehavior>
+				<dxai:CustomRequestBehavior/>
+			</dxmvvm:Interaction.Behaviors>
         </dxe:TextEdit>
     </Grid>
 </Window>

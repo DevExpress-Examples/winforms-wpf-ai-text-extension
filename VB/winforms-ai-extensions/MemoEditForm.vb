@@ -1,9 +1,10 @@
-﻿Namespace WinForms_AI_Extensions
-	Partial Public Class MemoEditForm
-		Inherits DevExpress.XtraEditors.XtraForm
+Namespace WinForms_AI_Extensions
 
-		Public Sub New()
-			InitializeComponent()
-		End Sub
-	End Class
+    Public Partial Class MemoEditForm
+        Inherits DevExpress.XtraEditors.XtraForm
+
+        Public Sub New()
+            InitializeComponent()
+        End Sub
+    End Class
 End Namespace

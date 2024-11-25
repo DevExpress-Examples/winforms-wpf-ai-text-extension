@@ -1,29 +1,17 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <OptionExplicit>On</OptionExplicit>
-    <OptionCompare>Binary</OptionCompare>
-    <OptionStrict>Off</OptionStrict>
-    <OptionInfer>On</OptionInfer>
   </PropertyGroup>
-
   <ItemGroup>
-    <Import Include="Microsoft.VisualBasic" />
-    <Import Include="System.Collections.Generic" />
-    <Import Include="System.Collections" />
-    <Import Include="System.Diagnostics" />
-    <Import Include="System" />
+    <PackageReference Include="Azure.AI.OpenAI" Version="2.0.0" />
+    <PackageReference Include="DevExpress.AIIntegration" Version="24.2.*" />
+    <PackageReference Include="Microsoft.Extensions.AI.Ollama" Version="9.0.*" />
+    <PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.0.*" />
   </ItemGroup>
-  <ItemGroup>
-	  <PackageReference Include="Azure.AI.OpenAI" Version="2.0.0" />
-	  <PackageReference Include="DevExpress.AIIntegration" Version="24.2.*" />
-	  <PackageReference Include="Microsoft.Extensions.AI.Ollama" Version="9.0.*" />
-	  <PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.0.*" />
-  </ItemGroup>
-
 </Project>

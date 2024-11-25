@@ -1,4 +1,4 @@
-﻿Imports Azure.AI.OpenAI
+Imports Azure.AI.OpenAI
 Imports DevExpress.AIIntegration
 Imports DevExpress.Xpf.Core
 Imports System.Configuration
@@ -6,42 +6,40 @@ Imports System.Data
 Imports System.Windows
 
 Namespace WPF_AI_Extensions
-	''' <summary>
-	''' Interaction logic for App.xaml
-	''' </summary>
-	''' 
 
-	Partial Public Class App
-		Inherits System.Windows.Application
+    ''' <summary>
+    ''' Interaction logic for App.xaml
+    ''' </summary>
+    ''' 
+    Public Partial Class App
+        Inherits System.Windows.Application
 
-		'Modify the following lines to obtain and pass your personal Azure OpenAI credentails to the Register* method.
-		Private ReadOnly Property AzureOpenAIEndpoint() As String
-			Get
-				Return Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
-			End Get
-		End Property
-		Private ReadOnly Property AzureOpenAIKey() As String
-			Get
-				Return Environment.GetEnvironmentVariable("AZURE_OPENAI_APIKEY")
-			End Get
-		End Property
-		Private ReadOnly Property DeploymentName() As String
-			Get
-				Return Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENTNAME")
-			End Get
-		End Property
+        'Modify the following lines to obtain and pass your personal Azure OpenAI credentails to the Register* method.
+        Private ReadOnly Property AzureOpenAIEndpoint As String
+            Get
+                Return Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+            End Get
+        End Property
 
-		Protected Overrides Sub OnStartup(ByVal e As StartupEventArgs)
-			MyBase.OnStartup(e)
+        Private ReadOnly Property AzureOpenAIKey As String
+            Get
+                Return Environment.GetEnvironmentVariable("AZURE_OPENAI_APIKEY")
+            End Get
+        End Property
 
-			ApplicationThemeHelper.ApplicationThemeName = "Office2019Colorful"
+        Private ReadOnly Property DeploymentName As String
+            Get
+                Return Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENTNAME")
+            End Get
+        End Property
 
-
-			'''To register Ollama
-			'OllamaChatClient ollamaChatClient = new OllamaChatClient("http://localhost:11434/api/chat", "llama3.1");
-
-			Dim azureOpenAIClient As New AzureOpenAIClient(New Uri(AzureOpenAIEndpoint), New System.ClientModel.ApiKeyCredential(AzureOpenAIKey))
-			AIExtensionsContainerDesktop.Default.RegisterChatClient(azureOpenAIClient.AsChatClient(DeploymentName))
-		End Sub
-	End Class
+        Protected Overrides Sub OnStartup(ByVal e As StartupEventArgs)
+            MyBase.OnStartup(e)
+            ApplicationThemeHelper.ApplicationThemeName = "Office2019Colorful"
+            ''' To register Ollama
+            'OllamaChatClient ollamaChatClient = new OllamaChatClient("http://localhost:11434/api/chat", "llama3.1");
+            Dim azureOpenAIClient As AzureOpenAIClient = New AzureOpenAIClient(New Uri(AzureOpenAIEndpoint), New System.ClientModel.ApiKeyCredential(AzureOpenAIKey))
+            AIExtensionsContainerDesktop.[Default].RegisterChatClient(azureOpenAIClient.AsChatClient(DeploymentName))
+        End Sub
+    End Class
 End Namespace

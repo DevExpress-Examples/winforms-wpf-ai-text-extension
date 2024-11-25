@@ -1,35 +1,22 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
-	<PropertyGroup>
-		<OutputType>WinExe</OutputType>
-		<TargetFramework>net8.0-windows</TargetFramework>
-		<RootNamespace></RootNamespace>
-		<Nullable>enable</Nullable>
-		<UseWindowsForms>true</UseWindowsForms>
-		<ImplicitUsings>enable</ImplicitUsings>
-		<OptionExplicit>On</OptionExplicit>
-		<OptionCompare>Binary</OptionCompare>
-		<OptionStrict>Off</OptionStrict>
-		<OptionInfer>On</OptionInfer>
-	</PropertyGroup>
-
-	<ItemGroup>
-	  <Import Include="Microsoft.VisualBasic" />
-	  <Import Include="System.Collections.Generic" />
-	  <Import Include="System.Collections" />
-	  <Import Include="System.Diagnostics" />
-	  <Import Include="System" />
-	</ItemGroup>
-	<ItemGroup>
-		<PackageReference Include="Azure.AI.OpenAI" Version="2.0.0" />
-		<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.0.*" />
-		<PackageReference Include="DevExpress.AIIntegration.WinForms" Version="24.2.*" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<None Update="WindowsForms.docx">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</None>
-	</ItemGroup>
-
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>
+    </RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Azure.AI.OpenAI" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.0.*" />
+    <PackageReference Include="DevExpress.AIIntegration.WinForms" Version="24.2.*" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="WindowsForms.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>

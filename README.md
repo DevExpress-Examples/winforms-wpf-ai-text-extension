@@ -1,4 +1,5 @@
 <!-- default badges list -->
+![](https://img.shields.io/endpoint?url=https://codecentral.devexpress.com/api/v1/VersionRange/858218353/24.2.2%2B)
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T1253691)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 [![](https://img.shields.io/badge/💬_Leave_Feedback-feecdd?style=flat-square)](#does-this-example-address-your-development-requirementsobjectives)
@@ -71,28 +72,27 @@ To introduce AI-powered capabilities in DevExpress WPF UI controls, add the foll
 
 ```xaml
 xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
-xmlns:wpf="clr-namespace:DevExpress.AIIntegration.Wpf;assembly=DevExpress.AIIntegration.Wpf.v24.2"
-xmlns:desktop="clr-namespace:DevExpress.AIIntegration.Desktop;assembly=DevExpress.AIIntegration.Desktop.v24.2"
+xmlns:dxai="http://schemas.devexpress.com/winfx/2008/xaml/ai"
 ```
 The following code snippet attaches AI-powered text processing behaviors to a DevExpress Text Editor:
 
 ```xaml
 <dxe:TextEdit TextWrapping="Wrap">
-    <dxmvvm:Interaction.Behaviors>
-        <wpf:SummarizeBehavior/>
-        <wpf:ExplainBehavior/>
-        <wpf:ShortenBehavior/>
-        <wpf:ExpandBehavior />
-        <wpf:ToneStyleBehavior />
-        <wpf:ProofreadBehavior/>
-        <wpf:RewriteStyleBehavior/>
-        <wpf:CustomRequestBehavior/>
-        <wpf:TranslateBehavior>
-            <desktop:LanguageInfo Culture="de-DE"/>
-            <desktop:LanguageInfo Culture="es-ES"/>
-            <desktop:LanguageInfo Culture="pt-BR"/>
-        </wpf:TranslateBehavior>
-    </dxmvvm:Interaction.Behaviors>
+        <dxmvvm:Interaction.Behaviors>
+            <dxai:ExpandBehavior />
+            <dxai:ShortenBehavior/>
+            <dxai:SummarizeBehavior/>
+            <dxai:ExplainBehavior/>
+            <dxai:ChangeToneBehavior />
+            <dxai:ProofreadBehavior/>
+            <dxai:ChangeStyleBehavior/>
+            <dxai:TranslateBehavior>
+                <dxai:LanguageInfo Culture="en-US"/>
+                <dxai:LanguageInfo Culture="de-DE"/>
+                <dxai:LanguageInfo Culture="fr-FR"/>
+            </dxai:TranslateBehavior>
+            <dxai:CustomRequestBehavior/>
+        </dxmvvm:Interaction.Behaviors>
 </dxe:TextEdit>
 ```
 

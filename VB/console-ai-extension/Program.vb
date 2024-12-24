@@ -53,7 +53,7 @@ Namespace Runtime_AI_Extensions
 
             Public Sub New()
                 ''' To register Ollama
-                'OllamaChatClient ollamaChatClient = new OllamaChatClient("http://localhost:11434/api/chat", "llama3.1");
+                'OllamaChatClient ollamaChatClient = new OllamaChatClient("http://localhost:11434/", "llama3.1");
                 'defaultAIContainer = AIExtensionsContainerConsole.CreateDefaultAIExtensionContainer(ollamaChatClient);
                 ''' To register Azure OpenAI
                 Dim azureOpenAIClient As AzureOpenAIClient = New AzureOpenAIClient(New Uri(AzureOpenAIEndpoint), New ClientModel.ApiKeyCredential(AzureOpenAIKey))

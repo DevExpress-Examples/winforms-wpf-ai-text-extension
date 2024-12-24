@@ -30,7 +30,7 @@ namespace WinForms_AI_Extensions
         private static void RegisterDevExpressAI()
         {
             ///To register Ollama
-            //OllamaChatClient ollamaChatClient = new OllamaChatClient("http://localhost:11434/api/chat", "llama3.1");
+            //OllamaChatClient ollamaChatClient = new OllamaChatClient("http://localhost:11434/", "llama3.1");
 
             AzureOpenAIClient azureOpenAIClient = new AzureOpenAIClient(new Uri(AzureOpenAIEndpoint),
                    new System.ClientModel.ApiKeyCredential(AzureOpenAIKey));

@@ -54,6 +54,9 @@ public SampleAITextModifier()
 }
 ```
 
+> [!Tip]
+> Refer to the following help topic for instructions on registering OpenAI, Azure OpenAI, Ollama, and Semantic Kernel: [Register AI Clients](https://docs.devexpress.com/CoreLibraries/405204/ai-powered-extensions#register-ai-clients).
+
 ### WinForms
 
 Use the [BehaviorManager](https://docs.devexpress.com/WindowsForms/DevExpress.Utils.Behaviors.BehaviorManager) component to activate AI-powered text transform extensions for DevExpress WinForms UI controls.

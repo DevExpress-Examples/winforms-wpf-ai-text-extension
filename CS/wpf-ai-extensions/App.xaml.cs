@@ -1,6 +1,7 @@
 ﻿using Azure.AI.OpenAI;
 using DevExpress.AIIntegration;
 using DevExpress.Xpf.Core;
+using Microsoft.Extensions.AI;
 using System.Configuration;
 using System.Data;
 using System.Windows;
@@ -29,9 +30,9 @@ namespace WPF_AI_Extensions
             ///To register Ollama
             //OllamaChatClient ollamaChatClient = new OllamaChatClient("http://localhost:11434/", "llama3.1");
 
-            AzureOpenAIClient azureOpenAIClient = new AzureOpenAIClient(new Uri(AzureOpenAIEndpoint),
-                   new System.ClientModel.ApiKeyCredential(AzureOpenAIKey));
-            AIExtensionsContainerDesktop.Default.RegisterChatClient(azureOpenAIClient.AsChatClient(DeploymentName));
+            IChatClient azureOpenAIClient = new AzureOpenAIClient(new Uri(AzureOpenAIEndpoint),
+                   new System.ClientModel.ApiKeyCredential(AzureOpenAIKey))
+                   .AsChatClient(DeploymentName);
         }
     }
 }

@@ -5,6 +5,7 @@ using Microsoft.Extensions.AI;
 using System.Configuration;
 using System.Data;
 using System.Windows;
+using System.Windows.Media.Media3D;
 
 namespace WPF_AI_Extensions
 {
@@ -31,8 +32,8 @@ namespace WPF_AI_Extensions
             //OllamaChatClient ollamaChatClient = new OllamaChatClient("http://localhost:11434/", "llama3.1");
 
             IChatClient azureOpenAIClient = new AzureOpenAIClient(new Uri(AzureOpenAIEndpoint),
-                   new System.ClientModel.ApiKeyCredential(AzureOpenAIKey))
-                   .AsChatClient(DeploymentName);
+                   new System.ClientModel.ApiKeyCredential(AzureOpenAIKey)).GetChatClient(DeploymentName).AsIChatClient();
+            AIExtensionsContainerDesktop.Default.RegisterChatClient(azureOpenAIClient);
         }
     }
 }

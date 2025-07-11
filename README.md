@@ -32,9 +32,9 @@ Install the following NuGet packages:
 > [!Note]
 > We use the following versions of the `Microsoft.Extensions.AI.*` libraries in our `v25.1.3+` source code:
 >
-> `Microsoft.Extensions.AI` | *9.5.0*
-> `Microsoft.Extensions.AI.Abstractions` | *9.5.0*
-> `Microsoft.Extensions.AI.OpenAI` | *9.5.0-preview.1.25265.7*
+> * `Microsoft.Extensions.AI` | *9.5.0*
+> * `Microsoft.Extensions.AI.Abstractions` | *9.5.0*
+> * `Microsoft.Extensions.AI.OpenAI` | *9.5.0-preview.1.25265.7*
 >
 > We do not guarantee compatibility or correct operation with higher versions. Refer to the following announcement for additional information: [DevExpress.AIIntegration moves to a stables version](https://supportcenter.devexpress.com/ticket/details/t1292705/devexpress-aiintegration-references-stable-versions-of-microsoft-ai-packages).
 

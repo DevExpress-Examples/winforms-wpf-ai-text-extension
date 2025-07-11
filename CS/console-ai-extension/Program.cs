@@ -49,9 +49,9 @@ namespace Runtime_AI_Extensions
                 //defaultAIContainer = AIExtensionsContainerConsole.CreateDefaultAIExtensionContainer(ollamaChatClient);
 
                 ///To register Azure OpenAI
-                AzureOpenAIClient azureOpenAIClient = new AzureOpenAIClient(new Uri(AzureOpenAIEndpoint),
-                    new System.ClientModel.ApiKeyCredential(AzureOpenAIKey));
-                defaultAIContainer = AIExtensionsContainerConsole.CreateDefaultAIExtensionContainer(azureOpenAIClient.AsChatClient(DeploymentName));
+                IChatClient client = new AzureOpenAIClient(new Uri(AzureOpenAIEndpoint),
+                    new System.ClientModel.ApiKeyCredential(AzureOpenAIKey)).GetChatClient(DeploymentName).AsIChatClient();
+                defaultAIContainer = AIExtensionsContainerConsole.CreateDefaultAIExtensionContainer(client);
             }
 
             public void ChangeDefaults()

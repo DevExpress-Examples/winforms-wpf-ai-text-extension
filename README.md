@@ -30,11 +30,13 @@ Install the following NuGet packages:
 4. Microsoft.Extensions.AI.OpenAI
 
 > [!Note]
-> We use the following versions of the `Microsoft.Extensions.AI.*` libraries in our source code:
+> We use the following versions of the `Microsoft.Extensions.AI.*` libraries in our `v25.1.3+` source code:
 >
-> v24.2.6+ | **9.3.0-preview.1.25161.3**
+> `Microsoft.Extensions.AI` | *9.5.0*
+> `Microsoft.Extensions.AI.Abstractions` | *9.5.0*
+> `Microsoft.Extensions.AI.OpenAI` | *9.5.0-preview.1.25265.7*
 >
-> We do not guarantee compatibility or correct operation with higher versions. Refer to the following announcement for additional information: [Microsoft.Extensions.AI.Abstractions NuGet Package Version Upgrade in v24.2.6](https://community.devexpress.com/blogs/news/archive/2025/03/12/important-announcement-microsoft-extensions-ai-abstractions-nuget-package-version-upgrade.aspx).
+> We do not guarantee compatibility or correct operation with higher versions. Refer to the following announcement for additional information: [DevExpress.AIIntegration moves to a stables version](https://supportcenter.devexpress.com/ticket/details/t1292705/devexpress-aiintegration-references-stable-versions-of-microsoft-ai-packages).
 
 ### Register AI Services
 
@@ -55,9 +57,9 @@ public SampleAITextModifier()
     //defaultAIContainer = AIExtensionsContainerConsole.CreateDefaultAIExtensionContainer(ollamaChatClient);
 
     ///To register Azure OpenAI
-    AzureOpenAIClient azureOpenAIClient = new AzureOpenAIClient(new Uri(AzureOpenAIEndpoint),    
-        new System.ClientModel.ApiKeyCredential(AzureOpenAIKey));
-    defaultAIContainer = AIExtensionsContainerConsole.CreateDefaultAIExtensionContainer(azureOpenAIClient.AsChatClient(DeploymentName));
+    IChatClient azureOpenAIClient = new AzureOpenAIClient(new Uri(AzureOpenAIEndpoint),
+            new System.ClientModel.ApiKeyCredential(AzureOpenAIKey)).GetChatClient(DeploymentName).AsIChatClient();
+    AIExtensionsContainerDesktop.Default.RegisterChatClient(azureOpenAIClient);
 }
 ```
 

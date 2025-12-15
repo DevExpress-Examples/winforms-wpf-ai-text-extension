@@ -43,12 +43,6 @@ namespace Runtime_AI_Extensions
 
             public SampleAITextModifier()
             {
-
-                ///To register Ollama
-                //OllamaChatClient ollamaChatClient = new OllamaChatClient("http://localhost:11434/", "llama3.1");
-                //defaultAIContainer = AIExtensionsContainerConsole.CreateDefaultAIExtensionContainer(ollamaChatClient);
-
-                ///To register Azure OpenAI
                 IChatClient client = new AzureOpenAIClient(new Uri(AzureOpenAIEndpoint),
                     new System.ClientModel.ApiKeyCredential(AzureOpenAIKey)).GetChatClient(DeploymentName).AsIChatClient();
                 defaultAIContainer = AIExtensionsContainerConsole.CreateDefaultAIExtensionContainer(client);

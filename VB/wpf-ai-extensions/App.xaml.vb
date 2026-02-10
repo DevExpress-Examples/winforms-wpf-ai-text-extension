@@ -2,9 +2,6 @@ Imports Azure.AI.OpenAI
 Imports DevExpress.AIIntegration
 Imports DevExpress.Xpf.Core
 Imports Microsoft.Extensions.AI
-Imports System.Configuration
-Imports System.Data
-Imports System.Windows
 Imports System.Windows.Media.Media3D
 
 Namespace WPF_AI_Extensions
@@ -41,7 +38,7 @@ Namespace WPF_AI_Extensions
             ''' To register Ollama
             'OllamaChatClient ollamaChatClient = new OllamaChatClient("http://localhost:11434/", "llama3.1");
             Dim azureOpenAIClient As IChatClient = New AzureOpenAIClient(New Uri(AzureOpenAIEndpoint), New System.ClientModel.ApiKeyCredential(AzureOpenAIKey)).GetChatClient(DeploymentName).AsIChatClient()
-            AIExtensionsContainerDesktop.[Default].RegisterChatClient(azureOpenAIClient)
+            AIExtensionsContainerDesktop.Default.RegisterChatClient(azureOpenAIClient)
         End Sub
     End Class
 End Namespace

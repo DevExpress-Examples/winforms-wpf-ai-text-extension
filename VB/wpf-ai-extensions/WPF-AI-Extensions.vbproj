@@ -15,8 +15,8 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Azure.AI.OpenAI" Version="2.2.0-beta.5" />
-    <PackageReference Include="DevExpress.AIIntegration.Wpf" Version="25.2.2-beta" />
-    <PackageReference Include="DevExpress.Wpf" Version="25.2.2-beta" />
+    <PackageReference Include="DevExpress.AIIntegration.Wpf" Version="25.2.4" />
+    <PackageReference Include="DevExpress.Wpf" Version="25.2.4" />
     <PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.7.1-preview.1.25365.4" />
   </ItemGroup>
   <ItemGroup>

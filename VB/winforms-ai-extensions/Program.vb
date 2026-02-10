@@ -42,7 +42,7 @@ Namespace WinForms_AI_Extensions
             ''' To register Ollama
             'OllamaChatClient ollamaChatClient = new OllamaChatClient("http://localhost:11434/", "llama3.1");
             Dim azureOpenAIClient As IChatClient = New AzureOpenAIClient(New Uri(AzureOpenAIEndpoint), New System.ClientModel.ApiKeyCredential(AzureOpenAIKey)).GetChatClient(DeploymentName).AsIChatClient()
-            AIExtensionsContainerDesktop.[Default].RegisterChatClient(azureOpenAIClient)
+            AIExtensionsContainerDesktop.Default.RegisterChatClient(azureOpenAIClient)
         End Sub
     End Module
 End Namespace

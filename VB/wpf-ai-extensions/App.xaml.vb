@@ -1,10 +1,6 @@
 Imports Azure.AI.OpenAI
-Imports DevExpress.AIIntegration
 Imports DevExpress.Xpf.Core
 Imports Microsoft.Extensions.AI
-Imports System.Configuration
-Imports System.Data
-Imports System.Windows
 
 Namespace WPF_AI_Extensions
 

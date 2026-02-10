@@ -58,7 +58,7 @@ Namespace WinForms_AI_Extensions
             Controls.Add(Me.memoEdit1)
             Margin = New Padding(2, 2, 2, 2)
             Name = "MemoEditForm"
-            Text = "Form1"
+            Me.Text = "Form1"
             CType(Me.memoEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
             CType(Me.behaviorManager1, System.ComponentModel.ISupportInitialize).EndInit()
             ResumeLayout(False)

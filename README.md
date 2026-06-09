@@ -16,6 +16,8 @@ This example registers an Azure OpenAI service and uses AI APIs within a .NET 8 
 
 >[!Note]
 > DevExpress does not provide a REST API or include built-in LLMs/SLMs. To use AI services, you need an active Azure/OpenAI subscription to obtain the necessary REST API endpoint, key, and model deployment name. This information must be added at application startup to register AI clients and enable DevExpress AI-powered features in your application.
+>
+> If these environment variables are not set, the sample falls back to the DevExpress demo proxy (`https://api.devexpress.com/demo-openai`) so you can try it out of the box. The demo proxy is rate-limited and intended for evaluation only — use your own Azure/OpenAI credentials for development.
 
 ## Implementation Details
 
@@ -40,16 +42,22 @@ Install the following NuGet packages:
 The following code in the `Program.cs` file registers an Azure AI service in the application:
 
 ```cs
-// Modify the following lines to obtain and pass your personal Azure OpenAI credentials to the `Register~` method.
-static string AzureOpenAIEndpoint { get { return Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT"); } }
-static string AzureOpenAIKey { get { return Environment.GetEnvironmentVariable("AZURE_OPENAI_APIKEY"); } }
-static string DeploymentName { get { return Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENTNAME"); } }
-
 AIExtensionsContainerDefault defaultAIContainer;
 public SampleAITextModifier()
 {
-    IChatClient azureOpenAIClient = new AzureOpenAIClient(new Uri(AzureOpenAIEndpoint),
-            new System.ClientModel.ApiKeyCredential(AzureOpenAIKey)).GetChatClient(DeploymentName).AsIChatClient();
+    // Modify the following lines to obtain and pass your personal Azure OpenAI credentials to the `Register~` method.
+    string azureOpenAIEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
+    if (string.IsNullOrEmpty(azureOpenAIEndpoint))
+        azureOpenAIEndpoint = "https://api.devexpress.com/demo-openai";//DevExpress demo proxy-server
+    string azureOpenAIKey = Environment.GetEnvironmentVariable("AZURE_OPENAI_APIKEY");
+    if (string.IsNullOrEmpty(azureOpenAIKey))
+        azureOpenAIKey = "DEMO";//Demo key
+    string deploymentName = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENTNAME");
+    if (string.IsNullOrEmpty(deploymentName))
+        deploymentName = "demo";//DevExpress demo deployment
+
+    IChatClient azureOpenAIClient = new AzureOpenAIClient(new Uri(azureOpenAIEndpoint),
+            new System.ClientModel.ApiKeyCredential(azureOpenAIKey)).GetChatClient(deploymentName).AsIChatClient();
     AIExtensionsContainerDesktop.Default.RegisterChatClient(azureOpenAIClient);
 }
 ```

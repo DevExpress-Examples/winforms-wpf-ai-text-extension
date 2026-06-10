@@ -34,17 +34,23 @@ namespace Runtime_AI_Extensions
 
         public class SampleAITextModifier
         {
-            //Modify the following lines to obtain and pass your personal Azure OpenAI credentails to the Register* method.
-            string AzureOpenAIEndpoint { get { return Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT"); } }
-            string AzureOpenAIKey { get { return Environment.GetEnvironmentVariable("AZURE_OPENAI_APIKEY"); } }
-            string DeploymentName { get { return Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENTNAME"); } }
-
             AIExtensionsContainerDefault defaultAIContainer;
 
             public SampleAITextModifier()
             {
-                IChatClient client = new AzureOpenAIClient(new Uri(AzureOpenAIEndpoint),
-                    new System.ClientModel.ApiKeyCredential(AzureOpenAIKey)).GetChatClient(DeploymentName).AsIChatClient();
+                //Modify the following lines to obtain and pass your personal Azure OpenAI credentails to the Register* method.
+                string azureOpenAIEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
+                if (string.IsNullOrEmpty(azureOpenAIEndpoint))
+                    azureOpenAIEndpoint = "https://api.devexpress.com/demo-openai";//DevExpress demo proxy-server
+                string azureOpenAIKey = Environment.GetEnvironmentVariable("AZURE_OPENAI_APIKEY");
+                if (string.IsNullOrEmpty(azureOpenAIKey))
+                    azureOpenAIKey = "DEMO";//Demo key
+                string deploymentName = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENTNAME");
+                if (string.IsNullOrEmpty(deploymentName))
+                    deploymentName = "demo";//DevExpress demo deployment
+
+                IChatClient client = new AzureOpenAIClient(new Uri(azureOpenAIEndpoint),
+                    new System.ClientModel.ApiKeyCredential(azureOpenAIKey)).GetChatClient(deploymentName).AsIChatClient();
                 defaultAIContainer = AIExtensionsContainerConsole.CreateDefaultAIExtensionContainer(client);
             }
 

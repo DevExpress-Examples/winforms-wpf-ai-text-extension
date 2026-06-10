@@ -29,29 +29,18 @@ Namespace Runtime_AI_Extensions
 
         Public Class SampleAITextModifier
 
-            'Modify the following lines to obtain and pass your personal Azure OpenAI credentails to the Register* method.
-            Private ReadOnly Property AzureOpenAIEndpoint As String
-                Get
-                    Return Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
-                End Get
-            End Property
-
-            Private ReadOnly Property AzureOpenAIKey As String
-                Get
-                    Return Environment.GetEnvironmentVariable("AZURE_OPENAI_APIKEY")
-                End Get
-            End Property
-
-            Private ReadOnly Property DeploymentName As String
-                Get
-                    Return Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENTNAME")
-                End Get
-            End Property
-
             Private defaultAIContainer As AIExtensionsContainerDefault
 
             Public Sub New()
-                Dim client As IChatClient = New AzureOpenAIClient(New Uri(AzureOpenAIEndpoint), New ClientModel.ApiKeyCredential(AzureOpenAIKey)).GetChatClient(DeploymentName).AsIChatClient()
+                'Modify the following lines to obtain and pass your personal Azure OpenAI credentails to the Register* method.
+                Dim azureOpenAIEndpoint As String = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+                If String.IsNullOrEmpty(azureOpenAIEndpoint) Then azureOpenAIEndpoint = "https://api.devexpress.com/demo-openai" 'DevExpress demo proxy-server
+                Dim azureOpenAIKey As String = Environment.GetEnvironmentVariable("AZURE_OPENAI_APIKEY")
+                If String.IsNullOrEmpty(azureOpenAIKey) Then azureOpenAIKey = "DEMO" 'Demo key
+                Dim deploymentName As String = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENTNAME")
+                If String.IsNullOrEmpty(deploymentName) Then deploymentName = "demo" 'DevExpress demo deployment
+
+                Dim client As IChatClient = New AzureOpenAIClient(New Uri(azureOpenAIEndpoint), New ClientModel.ApiKeyCredential(azureOpenAIKey)).GetChatClient(deploymentName).AsIChatClient()
                 defaultAIContainer = AIExtensionsContainerConsole.CreateDefaultAIExtensionContainer(client)
             End Sub
 

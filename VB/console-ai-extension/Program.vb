@@ -2,6 +2,7 @@ Imports Azure.AI.OpenAI
 Imports DevExpress.AIIntegration
 Imports DevExpress.AIIntegration.Extensions
 Imports DevExpress.AIIntegration.Localization
+Imports DevExpress.Data
 Imports Microsoft.Extensions.AI
 Imports System
 Imports System.Globalization
@@ -39,7 +40,6 @@ Namespace Runtime_AI_Extensions
                 If String.IsNullOrEmpty(azureOpenAIKey) Then azureOpenAIKey = "DEMO" 'Demo key
                 Dim deploymentName As String = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENTNAME")
                 If String.IsNullOrEmpty(deploymentName) Then deploymentName = "demo" 'DevExpress demo deployment
-
                 Dim client As IChatClient = New AzureOpenAIClient(New Uri(azureOpenAIEndpoint), New ClientModel.ApiKeyCredential(azureOpenAIKey)).GetChatClient(deploymentName).AsIChatClient()
                 defaultAIContainer = AIExtensionsContainerConsole.CreateDefaultAIExtensionContainer(client)
             End Sub
@@ -67,7 +67,7 @@ Namespace Runtime_AI_Extensions
                         Return "The text you're trying to send within a request is too long and exceeds the limit."
                     Case ResponseStatus.ContentFiltered
                         Return "Potentially harmful content was detected in your request."
-                    Case ResponseStatus.Error
+                    Case ResponseStatus.[Error]
                         Return "An error occurred while processing the request."
                 End Select
 

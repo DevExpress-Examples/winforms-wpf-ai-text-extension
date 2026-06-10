@@ -874,7 +874,7 @@ Namespace WinForms_AI_Extensions
             Margin = New Padding(2, 2, 2, 2)
             Name = "RichEditForm"
             Ribbon = Me.ribbonControl1
-            Me.Text = "RichEditForm"
+            Text = "RichEditForm"
             CType(Me.ribbonControl1, System.ComponentModel.ISupportInitialize).EndInit()
             CType(Me.repositoryItemFontEditRichEdit1, System.ComponentModel.ISupportInitialize).EndInit()
             CType(Me.repositoryItemRichEditFontSizeEdit1, System.ComponentModel.ISupportInitialize).EndInit()

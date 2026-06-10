@@ -1,12 +1,15 @@
 Imports DevExpress.XtraBars.Ribbon
+Imports DevExpress.XtraEditors
 Imports System.ComponentModel
+Imports System.Data
 Imports System.Drawing
 Imports System.Linq
+Imports System.Windows.Forms
 
 Namespace WinForms_AI_Extensions
 
     Public Partial Class RichEditForm
-        Inherits RibbonForm
+        Inherits DevExpress.XtraBars.Ribbon.RibbonForm
 
         Public Sub New()
             InitializeComponent()

@@ -23,14 +23,14 @@ This example registers an Azure OpenAI service and uses AI APIs within a .NET 8 
 
 Install the following NuGet packages:
 
-1. Azure.AI.OpenAI
+1. Azure.AI.OpenAI (minimal version - 2.3.0-beta.2)
 
 2. DevExpress.AIIntegration
 
 3. Microsoft.Extensions.AI.OpenAI
 
 > [!Note]
-> We use the following versions of the `Microsoft.Extensions.AI.*` libraries in our `v25.2.2+` source code:
+> We use the following versions of the `Microsoft.Extensions.AI.*` libraries in our source code:
 >
 > * `Microsoft.Extensions.AI` | **9.7.1**
 > * `Microsoft.Extensions.AI.OpenAI` | **9.7.1-preview.1.25365.4**

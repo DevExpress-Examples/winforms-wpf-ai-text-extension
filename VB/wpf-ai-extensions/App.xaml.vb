@@ -2,9 +2,6 @@ Imports Azure.AI.OpenAI
 Imports DevExpress.AIIntegration
 Imports DevExpress.Xpf.Core
 Imports Microsoft.Extensions.AI
-Imports System.Configuration
-Imports System.Data
-Imports System.Windows
 Imports System.Windows.Media.Media3D
 
 Namespace WPF_AI_Extensions
@@ -29,7 +26,7 @@ Namespace WPF_AI_Extensions
             Dim deploymentName As String = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENTNAME")
             If String.IsNullOrEmpty(deploymentName) Then deploymentName = "demo" 'DevExpress demo deployment
             Dim azureOpenAIClient As IChatClient = New AzureOpenAIClient(New Uri(azureOpenAIEndpoint), New System.ClientModel.ApiKeyCredential(azureOpenAIKey)).GetChatClient(deploymentName).AsIChatClient()
-            AIExtensionsContainerDesktop.[Default].RegisterChatClient(azureOpenAIClient)
+            AIExtensionsContainerDesktop.Default.RegisterChatClient(azureOpenAIClient)
         End Sub
     End Class
 End Namespace

@@ -30,7 +30,7 @@ Namespace WinForms_AI_Extensions
             Dim deploymentName As String = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENTNAME")
             If String.IsNullOrEmpty(deploymentName) Then deploymentName = "demo" 'DevExpress demo deployment
             Dim azureOpenAIClient As IChatClient = New AzureOpenAIClient(New Uri(azureOpenAIEndpoint), New System.ClientModel.ApiKeyCredential(azureOpenAIKey)).GetChatClient(deploymentName).AsIChatClient()
-            AIExtensionsContainerDesktop.[Default].RegisterChatClient(azureOpenAIClient)
+            AIExtensionsContainerDesktop.Default.RegisterChatClient(azureOpenAIClient)
         End Sub
     End Module
 End Namespace

@@ -7,7 +7,7 @@
 
 # Integrate DevExpress AI-Powered Text Extensions into Console, WinForms, and WPF Apps
 
-This example registers an Azure OpenAI service and uses AI APIs within a .NET 8 console application and adds AI-powered text processing features to the following DevExpress UI components:
+This example registers an Azure OpenAI service and uses AI APIs within a .NET console application and adds AI-powered text processing features to the following DevExpress UI components:
 
 * [WinForms MemoEdit](https://www.devexpress.com/products/net/controls/winforms/editors/)
 * [WinForms RichEdit](https://www.devexpress.com/products/net/controls/winforms/rich_editor/)

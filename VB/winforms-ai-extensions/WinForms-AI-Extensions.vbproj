@@ -3,8 +3,7 @@
     <OptionInfer>On</OptionInfer>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows</TargetFramework>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace>WinFormsAIExtensions</RootNamespace>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>

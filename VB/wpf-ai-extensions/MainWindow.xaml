@@ -1,0 +1,39 @@
+<Window x:Class="WPF_AI_Extensions.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_AI_Extensions"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+        xmlns:dxai="http://schemas.devexpress.com/winfx/2008/xaml/ai"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <dxe:TextEdit   TextWrapping="Wrap"
+                        Text="We are proud to announce the immediate availability of DevExpress Universal v24.1, our award-winning software development platform for .NET and Visual Studio developers. With numerous new products and dozens of high-impact features, v24.1 allows you to build your best, without limits or compromise. From the desktop, the web or your mobile world, DevExpress dev tools help you address a broad range of usage scenarios and deliver intuitive solutions that amaze."
+						VerticalScrollBarVisibility="Auto"
+                        VerticalContentAlignment="Top">
+            <dxmvvm:Interaction.Behaviors>
+				<dxai:ExpandBehavior />
+				<dxai:ShortenBehavior/>
+				<dxai:SummarizeBehavior/>
+				<dxai:ExplainBehavior/>
+				<dxai:ChangeToneBehavior />
+				<dxai:ProofreadBehavior/>
+				<dxai:ChangeStyleBehavior/>
+				<dxai:TranslateBehavior>
+					<dxai:LanguageInfo Culture="en-US"/>
+					<dxai:LanguageInfo Culture="de-DE"/>
+					<dxai:LanguageInfo Culture="fr-FR"/>
+				</dxai:TranslateBehavior>
+				<dxai:CustomRequestBehavior/>
+			</dxmvvm:Interaction.Behaviors>
+        </dxe:TextEdit>
+    </Grid>
+</Window>

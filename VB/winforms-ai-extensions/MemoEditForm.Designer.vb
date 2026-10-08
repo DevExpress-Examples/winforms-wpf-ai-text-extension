@@ -1,0 +1,72 @@
+Imports System.Drawing
+Imports System.Windows.Forms
+
+Namespace WinForms_AI_Extensions
+    <Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+    Partial Class MemoEditForm
+        Inherits DevExpress.XtraEditors.XtraForm
+
+        Private components As System.ComponentModel.IContainer
+
+        <System.Diagnostics.DebuggerNonUserCode()>
+        Protected Overrides Sub Dispose(disposing As Boolean)
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+            MyBase.Dispose(disposing)
+        End Sub
+
+        <System.Diagnostics.DebuggerStepThrough()>
+        Private Sub InitializeComponent()
+            components = New System.ComponentModel.Container()
+            Dim languageInfo1 As New DevExpress.AIIntegration.WinForms.LanguageInfo()
+            Dim languageInfo2 As New DevExpress.AIIntegration.WinForms.LanguageInfo()
+            Dim languageInfo3 As New DevExpress.AIIntegration.WinForms.LanguageInfo()
+            Dim resources As New System.ComponentModel.ComponentResourceManager(GetType(MemoEditForm))
+            memoEdit1 = New DevExpress.XtraEditors.MemoEdit()
+            behaviorManager1 = New DevExpress.Utils.Behaviors.BehaviorManager(components)
+            CType(memoEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType(behaviorManager1, System.ComponentModel.ISupportInitialize).BeginInit()
+            SuspendLayout()
+            ' 
+            ' memoEdit1
+            ' 
+            languageInfo1.Culture = New Global.System.Globalization.CultureInfo("pt")
+            languageInfo2.Culture = New Global.System.Globalization.CultureInfo("es")
+            languageInfo3.Culture = New Global.System.Globalization.CultureInfo("de")
+            behaviorManager1.SetBehaviors(memoEdit1, New DevExpress.Utils.Behaviors.Behavior() {
+                DevExpress.AIIntegration.WinForms.ExpandBehavior.Create(GetType(DevExpress.AIIntegration.WinForms.MemoEditExpandBehaviorSource)),
+                DevExpress.AIIntegration.WinForms.ShortenBehavior.Create(GetType(DevExpress.AIIntegration.WinForms.MemoEditShortenBehaviorSource)),
+                DevExpress.AIIntegration.WinForms.SummarizeBehavior.Create(GetType(DevExpress.AIIntegration.WinForms.MemoEditSummarizeBehaviorSource), DevExpress.AIIntegration.SummarizationMode.Abstractive),
+                DevExpress.AIIntegration.WinForms.ExplainBehavior.Create(GetType(DevExpress.AIIntegration.WinForms.MemoEditExplainBehaviorSource)),
+                DevExpress.AIIntegration.WinForms.ChangeToneBehavior.Create(GetType(DevExpress.AIIntegration.WinForms.MemoEditChangeToneBehaviorSource)),
+                DevExpress.AIIntegration.WinForms.ProofreadBehavior.Create(GetType(DevExpress.AIIntegration.WinForms.MemoEditProofreadBehaviorSource)),
+                DevExpress.AIIntegration.WinForms.ChangeStyleBehavior.Create(GetType(DevExpress.AIIntegration.WinForms.MemoEditChangeStyleBehaviorSource)),
+                DevExpress.AIIntegration.WinForms.TranslateBehavior.Create(GetType(DevExpress.AIIntegration.WinForms.MemoEditTranslateBehaviorSource), New DevExpress.AIIntegration.WinForms.LanguageInfo() {languageInfo1, languageInfo2, languageInfo3}),
+                DevExpress.AIIntegration.WinForms.CustomRequestBehavior.Create(GetType(DevExpress.AIIntegration.WinForms.MemoEditCustomRequestBehaviorSource))})
+            memoEdit1.Dock = DockStyle.Fill
+            memoEdit1.EditValue = resources.GetString("memoEdit1.EditValue")
+            memoEdit1.Location = New Point(0, 0)
+            memoEdit1.Margin = New Padding(2)
+            memoEdit1.Name = "memoEdit1"
+            memoEdit1.Size = New Size(951, 496)
+            memoEdit1.TabIndex = 0
+            ' 
+            ' MemoEditForm
+            ' 
+            AutoScaleDimensions = New SizeF(9F, 19F)
+            AutoScaleMode = AutoScaleMode.Font
+            ClientSize = New Size(951, 496)
+            Controls.Add(memoEdit1)
+            Margin = New Padding(2)
+            Name = "MemoEditForm"
+            Text = "Form1"
+            CType(memoEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(behaviorManager1, System.ComponentModel.ISupportInitialize).EndInit()
+            ResumeLayout(False)
+        End Sub
+
+        Private memoEdit1 As DevExpress.XtraEditors.MemoEdit
+        Private behaviorManager1 As DevExpress.Utils.Behaviors.BehaviorManager
+    End Class
+End Namespace

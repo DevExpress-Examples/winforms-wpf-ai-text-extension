@@ -3,16 +3,15 @@
     <OptionInfer>On</OptionInfer>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows</TargetFramework>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace>WinForms_AI_Extensions</RootNamespace>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Azure.AI.OpenAI" Version="2.2.0-beta.5" />
-    <PackageReference Include="DevExpress.AIIntegration.WinForms" Version="25.2.10" />
-    <PackageReference Include="DevExpress.Win" Version="25.2.10" />
+    <PackageReference Include="Azure.AI.OpenAI" Version="2.3.0-beta.2" />
+    <PackageReference Include="DevExpress.AIIntegration.WinForms" Version="26.1.3" />
+    <PackageReference Include="DevExpress.Win" Version="26.1.3" />
     <PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.7.1-preview.1.25365.4" />
   </ItemGroup>
   <ItemGroup>
